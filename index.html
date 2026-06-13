@@ -71,7 +71,7 @@
   .cards{max-width:1080px;margin:54px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .card{background:#fff;border:1px solid #eee4da;border-radius:18px;padding:34px 28px;box-shadow:0 6px 24px rgba(35,24,21,.05)}
   .card .emoji{font-size:34px;line-height:1}
-  .card .meta{margin-top:16px;color:var(--orange);font-weight:700;font-size:14px}
+  .card .meta{display:inline-block;margin-top:14px;color:var(--orange);font-weight:800;font-size:12px;letter-spacing:.3px;background:rgba(232,114,0,.1);padding:5px 12px;border-radius:999px}
   .card .q{margin-top:10px;font-size:19px;font-weight:800;color:var(--ink);line-height:1.45}
   .card .d{margin-top:12px;color:var(--text);font-size:15px;line-height:1.65}
   @media(max-width:820px){.cards{grid-template-columns:1fr}}
@@ -132,11 +132,13 @@
   /* PROCESS */
   .process{background:#fff}
   .proc-grid{max-width:1040px;margin:54px auto 0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .proc-card{background:#fff;border:1px solid #efe7db;border-radius:18px;padding:32px 28px;box-shadow:0 12px 32px rgba(35,24,21,.07)}
-  .proc-card .num{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;color:var(--orange);background:rgba(232,114,0,.1);padding:5px 13px;border-radius:999px}
-  .proc-card .t{margin-top:12px;font-size:20px;font-weight:800;color:var(--ink);line-height:1.4}
-  .proc-card .d{margin-top:12px;color:var(--text);font-size:15px;line-height:1.7}
-  .proc-card .badge{display:inline-block;margin-top:16px;font-size:12.5px;font-weight:700;color:var(--orange);background:#fff;border:1px solid #f0ddc8;border-radius:6px;padding:5px 12px}
+  .proc-card{background:#FBF8F4;border:1px solid #efe7db;border-top:3px solid var(--orange);border-radius:16px;padding:26px 24px;box-shadow:0 10px 28px rgba(35,24,21,.06)}
+  .proc-card .top{display:flex;align-items:center;gap:14px}
+  .proc-card .bignum{font-size:44px;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-1px;flex-shrink:0}
+  .proc-card .t{font-size:19px;font-weight:800;color:var(--ink);line-height:1.35}
+  .proc-card .d{margin-top:15px;color:var(--text);font-size:14px;line-height:1.7}
+  .proc-card .chips{margin-top:15px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .proc-card .chips span{background:#fff;border:1px solid #e4d8cc;color:var(--orange);font-weight:700;font-size:11.5px;padding:7px 6px;border-radius:999px;text-align:center;white-space:nowrap}
 
   /* REVIEW */
   .review{background:var(--cream)}
@@ -171,10 +173,16 @@
   .fd-bio{margin-top:20px;color:var(--text);font-size:15px;line-height:1.8}
   .fd-h2{font-size:clamp(22px,2.8vw,30px);font-weight:800;color:var(--ink);line-height:1.32}
   .fd-sub{margin-top:14px;color:var(--text);font-size:15px;line-height:1.8}
-  .fd-metrics{margin-top:30px;display:flex;flex-direction:column;gap:14px}
-  .fd-metric{display:flex;align-items:center;gap:18px;padding:18px 22px;background:#fff;border:1px solid #ece2d6;border-radius:12px}
+  .fd-metrics{margin-top:24px;background:var(--brown);border-radius:16px;padding:10px 24px;display:flex;flex-direction:column}
+  .fd-metric{display:flex;align-items:center;gap:18px;padding:16px 4px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.12);border-radius:0}
+  .fd-metric:last-child{border-bottom:none}
   .fd-metric .n{font-size:26px;font-weight:800;color:var(--orange);white-space:nowrap}
-  .fd-metric .l{color:var(--text);font-size:14px}
+  .fd-metric .l{color:#e8ddd6;font-size:14px}
+  @media(max-width:768px){
+    .fd-grid > div:first-child{text-align:center}
+    .fd-photo{margin-left:auto;margin-right:auto}
+    .fd-chips{justify-content:center}
+  }
 
   /* FAQ */
   .faq{background:var(--gray-bg)}
@@ -345,34 +353,34 @@
     <h2 class="sec-title">대표 없이도 굴러가는 회사,<br><span class="hl-box">이 순서</span>로 만들어드립니다</h2>
     <div class="proc-grid">
       <div class="proc-card">
-        <div class="num">STEP 01</div>
-        <div class="t">비전과 목표</div>
-        <div class="d">회사의 방향과 목표를 정하고, 실제 굴러가는 프로젝트로 바꿔요.</div>
+        <div class="top"><div class="bignum">01</div><div class="t">비전과 목표</div></div>
+        <div class="d">회사가 어디로 갈지 방향을 먼저 정해요. 막연한 목표를 올해 → 분기 → 월 단위로 쪼개, 매일 실행할 수 있는 프로젝트로 바꿔드립니다.</div>
+        <div class="chips"><span>비전 설정</span><span>목표 수립</span><span>지표 설정</span></div>
       </div>
       <div class="proc-card">
-        <div class="num">STEP 02</div>
-        <div class="t">업무 역할</div>
-        <div class="d">사람과 AI의 역할을 명확히 나눠, 대표님이 다 떠안지 않게 해요.</div>
+        <div class="top"><div class="bignum">02</div><div class="t">업무 역할</div></div>
+        <div class="d">어떤 일을 사람이 맡고 어떤 일을 AI에 넘길지 명확히 나눠요. 대표님이 모든 걸 떠안지 않도록 역할과 책임을 정리합니다.</div>
+        <div class="chips"><span>역할 분담</span><span>책임 정리</span><span>위임 설계</span></div>
       </div>
       <div class="proc-card">
-        <div class="num">STEP 03</div>
-        <div class="t">프로세스</div>
-        <div class="d">누가 맡아도 똑같이 굴러가게 정리하고, 위임 우선순위로 대표님 일을 줄여요.</div>
+        <div class="top"><div class="bignum">03</div><div class="t">프로세스</div></div>
+        <div class="d">누가 맡아도 똑같은 결과가 나오게 반복 업무를 표준화해요. 위임 우선순위를 정해 대표님 손을 거치는 일을 줄여드립니다.</div>
+        <div class="chips"><span>업무 표준화</span><span>매뉴얼화</span><span>우선순위</span></div>
       </div>
       <div class="proc-card">
-        <div class="num">STEP 04</div>
-        <div class="t">협업 시스템</div>
-        <div class="d">맞는 협업 툴로 업무를 한눈에 보이게 만들고, 일하는 방식을 바꿔드려요.</div>
+        <div class="top"><div class="bignum">04</div><div class="t">협업 시스템</div></div>
+        <div class="d">회사에 맞는 협업 툴로 모든 업무를 한눈에 보이게 만들어요. 흩어진 소통·회의를 정비해 일하는 방식 자체를 바꿉니다.</div>
+        <div class="chips"><span>툴 선정</span><span>업무 가시화</span><span>소통 정비</span></div>
       </div>
       <div class="proc-card">
-        <div class="num">STEP 05</div>
-        <div class="t">AI 자동화</div>
-        <div class="d">맡길 업무부터 우선순위를 잡아 자동화하고, 그 노하우를 회사 자산으로 쌓아요.</div>
+        <div class="top"><div class="bignum">05</div><div class="t">AI 자동화</div></div>
+        <div class="d">시스템이 자리잡으면 맡길 업무부터 우선순위를 잡아 자동화해요. 그 노하우를 회사 자산으로 쌓아 계속 굴러가게 합니다.</div>
+        <div class="chips"><span>우선순위</span><span>자동화</span><span>자산화</span></div>
       </div>
       <div class="proc-card">
-        <div class="num">STEP 06</div>
-        <div class="t">심플키 케어</div>
-        <div class="d">끝나고 흐지부지되지 않게, 월 정기 점검으로 체화될 때까지 챙겨드려요.</div>
+        <div class="top"><div class="bignum">06</div><div class="t">심플키 케어</div></div>
+        <div class="d">끝나고 흐지부지되지 않도록 월 정기 점검으로 챙겨요. 시스템 사고가 회사에 완전히 체화될 때까지 함께합니다.</div>
+        <div class="chips"><span>정기 점검</span><span>정착 케어</span><span>지속 개선</span></div>
       </div>
     </div>
   </section>
@@ -425,8 +433,8 @@
   <!-- GROWTH -->
   <section class="sec growth">
     <span class="eyebrow-d">WHY SYSTEM</span>
-    <h2 class="sec-title">회사가 크는 길은 둘뿐</h2>
-    <p class="gr-lead">매출을 키우거나, 비용을 줄이거나.<br>시스템은 <b>그 둘 다</b>를 만듭니다.</p>
+    <h2 class="sec-title">매출은 올리고,<br>비용은 줄입니다</h2>
+    <p class="gr-lead">회사가 크는 길은 둘뿐.<br class="mo-br"> 시스템이 <b>그 둘 다</b>를 만듭니다.</p>
     <div class="gr-grid">
       <div class="gr-card">
         <div class="gr-ic">💰</div>
@@ -450,7 +458,7 @@
   <!-- FOUNDER -->
   <section class="sec founder">
     <span class="eyebrow-d">FOUNDER</span>
-    <h2 class="sec-title">이 시스템을 만든 사람</h2>
+    <h2 class="sec-title">심플키를 만든 사람</h2>
     <div class="fd-grid">
       <div>
         <div class="fd-photo"><img src="assets/founder.jpg" alt="심플키 대표 서지영"></div>
@@ -464,7 +472,7 @@
         </div>
       </div>
       <div>
-        <h2 class="fd-h2">끝나고도 혼자 굴러가게,<br>원리부터 알려드려요</h2>
+        <h2 class="fd-h2">컨설팅이 끝나도 혼자 굴러가도록,<br>원리까지 알려드려요</h2>
         <p class="fd-sub">프로세스 설계부터 AI 자동화까지, 작은 기업에 딱 맞게 1:1로 함께합니다.</p>
         <div class="fd-metrics">
           <div class="fd-metric"><div class="n">150+</div><div class="l">컨설팅 고객사</div></div>
@@ -479,10 +487,11 @@
   <section class="sec whynow">
     <span class="eyebrow-d">WHY NOW</span>
     <h2 class="sec-title">왜, 지금이어야 할까요?</h2>
-    <p class="wn-lead">이 두 신호 중 하나라면,<br class="mo-br"> 지금이 바로 그 타이밍이에요.</p>
+    <p class="wn-lead">이 세 신호 중 하나라면,<br class="mo-br"> 지금이 바로 그 타이밍이에요.</p>
     <div class="wn-signals">
       <div class="wn-sig"><span class="ic">🚀</span><span class="lb">첫 직원을 뽑기 직전</span></div>
-      <div class="wn-sig"><span class="ic">📉</span><span class="lb">성장이 멈춰 있을 때</span></div>
+      <div class="wn-sig"><span class="ic">🔥</span><span class="lb">성수기·바쁜 시즌 전</span></div>
+      <div class="wn-sig"><span class="ic">📉</span><span class="lb">성장이 멈췄을 때</span></div>
     </div>
     <p class="wn-foot">지금 쓰는 시간과 비용이<br class="mo-br"> <b>3개월·6개월 뒤 성과</b>로 돌아옵니다.</p>
   </section>

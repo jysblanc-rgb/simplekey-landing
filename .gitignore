@@ -2,3 +2,6 @@ index.html.bak
 .playwright-mcp/
 .DS_Store
 og-build.html
+proc-variants.html
+proc-variants2.html
+proc-proposed.html
