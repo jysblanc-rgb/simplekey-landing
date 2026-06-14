@@ -720,13 +720,13 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
       if(logo) logo.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
     })();
 
-    // 상담 버튼 클릭 → 메타 픽셀 Lead 이벤트 (버튼별 위치 라벨)
+    // 상담 버튼 클릭 → 맞춤 이벤트 ConsultClick (cal 네이티브 'Lead'와 충돌 방지·버튼 위치 라벨)
     (function(){
       var ctas=[['.cta','nav'],['.btn','hero'],['.b1','final'],['.sc-btn','sticky']];
       ctas.forEach(function(pair){
         document.querySelectorAll(pair[0]).forEach(function(a){
           a.addEventListener('click', function(){
-            if(typeof fbq==='function') fbq('track','Lead',{content_name:'무료상담', source:pair[1]});
+            if(typeof fbq==='function') fbq('trackCustom','ConsultClick',{content_name:'무료상담', source:pair[1]});
           });
         });
       });
@@ -766,11 +766,8 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
       calLink: "simplekey/10min",
     });
     Cal.ns["10min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    // 예약 완료 → 메타 픽셀 전환 이벤트
-    // 기존 캠페인이 최적화하는 맞춤 이벤트 'BookingCompleted' + 표준 'Schedule' 둘 다 발화
-    Cal.ns["10min"]("on", { action: "bookingSuccessful", callback: function(){
-      if(typeof fbq==='function'){ fbq('trackCustom','BookingCompleted',{content_name:'10분무료상담'}); fbq('track','Schedule',{content_name:'10분무료상담'}); }
-    } });
+    // 예약 완료 전환은 cal.com 자체 메타픽셀 연동이 'BookingCompleted'(+Lead)를 발화함.
+    // 기존 캠페인이 최적화하던 바로 그 이벤트라, 여기서 중복 발화하지 않는다 (이중 집계 방지).
   </script>
 </body>
 </html>
