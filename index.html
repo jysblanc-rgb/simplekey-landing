@@ -766,8 +766,11 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
       calLink: "simplekey/10min",
     });
     Cal.ns["10min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    // 예약 완료 → 메타 픽셀 Schedule (실제 전환)
-    Cal.ns["10min"]("on", { action: "bookingSuccessful", callback: function(){ if(typeof fbq==='function') fbq('track','Schedule',{content_name:'10분무료상담'}); } });
+    // 예약 완료 → 메타 픽셀 전환 이벤트
+    // 기존 캠페인이 최적화하는 맞춤 이벤트 'BookingCompleted' + 표준 'Schedule' 둘 다 발화
+    Cal.ns["10min"]("on", { action: "bookingSuccessful", callback: function(){
+      if(typeof fbq==='function'){ fbq('trackCustom','BookingCompleted',{content_name:'10분무료상담'}); fbq('track','Schedule',{content_name:'10분무료상담'}); }
+    } });
   </script>
 </body>
 </html>
