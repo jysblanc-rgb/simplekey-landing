@@ -297,6 +297,16 @@
   .lg-metric .l{margin-top:8px;font-size:clamp(12px,1.5vw,14px);color:var(--text)}
   @media(max-width:768px){.lg-metrics{grid-template-columns:1fr;gap:10px}.lg-metric{display:flex;align-items:center;gap:16px;padding:18px 22px;text-align:left}.lg-metric .l{margin-top:0}}
 
+  /* === 동영상 라이트박스(팝업 인라인 재생) === */
+  .nav .logo{cursor:pointer}
+  .vmodal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:20px}
+  .vmodal.open{display:flex}
+  .vmodal-inner{width:100%;max-width:900px;position:relative}
+  .vmodal-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .vmodal-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vmodal-close{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;border:none;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .vmodal-close:hover{background:rgba(255,255,255,.28)}
+
   /* === HERO 헤드라인 등장 효과 === */
   .hero h1 .reveal{display:inline-block;opacity:0;transform:translateY(14px);animation:revealUp .6s ease forwards}
   .hero h1 .reveal.l2{animation-delay:.18s}
@@ -625,6 +635,14 @@
     </div>
   </div>
 
+  <!-- 동영상 라이트박스 -->
+  <div class="vmodal" id="vmodal">
+    <div class="vmodal-inner">
+      <button class="vmodal-close" id="vmClose" aria-label="닫기">✕</button>
+      <div class="vmodal-frame"><iframe id="vmFrame" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></div>
+    </div>
+  </div>
+
   <script>
     (function(){
       var bar=document.getElementById('stickyCta');
@@ -647,6 +665,29 @@
         if(!open){ item.classList.add('open'); }
       });
     });
+
+    // 동영상 라이트박스 (유튜브 인라인 재생 — 이탈 방지)
+    (function(){
+      var modal=document.getElementById('vmodal'), frame=document.getElementById('vmFrame');
+      if(!modal) return;
+      function open(id){ frame.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0'; modal.classList.add('open'); document.body.style.overflow='hidden'; }
+      function close(){ modal.classList.remove('open'); frame.src=''; document.body.style.overflow=''; }
+      document.querySelectorAll('.iv-card').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var m=(a.getAttribute('href')||'').match(/v=([A-Za-z0-9_-]{11})/);
+          if(m){ e.preventDefault(); open(m[1]); }
+        });
+      });
+      document.getElementById('vmClose').addEventListener('click', close);
+      modal.addEventListener('click', function(e){ if(e.target===modal) close(); });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+    })();
+
+    // 로고 클릭 → 맨 위로
+    (function(){
+      var logo=document.querySelector('.nav .logo');
+      if(logo) logo.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    })();
 
     // 숫자 카운트업 (스크롤 진입 시 1회)
     (function(){
