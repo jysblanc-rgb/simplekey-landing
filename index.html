@@ -16,6 +16,22 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="심플키 — AI 업무 시스템 컨설팅">
 <meta name="twitter:card" content="summary_large_image">
+<!-- Meta Pixel (simplekey.kr · 647144813979261) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','647144813979261');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
   :root{
@@ -687,6 +703,18 @@
     (function(){
       var logo=document.querySelector('.nav .logo');
       if(logo) logo.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    })();
+
+    // 상담 버튼 클릭 → 메타 픽셀 Lead 이벤트 (버튼별 위치 라벨)
+    (function(){
+      var ctas=[['.cta','nav'],['.btn','hero'],['.b1','final'],['.sc-btn','sticky']];
+      ctas.forEach(function(pair){
+        document.querySelectorAll(pair[0]).forEach(function(a){
+          a.addEventListener('click', function(){
+            if(typeof fbq==='function') fbq('track','Lead',{content_name:'무료상담', source:pair[1]});
+          });
+        });
+      });
     })();
 
     // 숫자 카운트업 (스크롤 진입 시 1회)
