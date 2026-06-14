@@ -327,12 +327,19 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
   .hero h1 .reveal{display:inline-block;opacity:0;transform:translateY(14px);animation:revealUp .6s ease forwards}
   .hero h1 .reveal.l2{animation-delay:.18s}
   @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+  /* 상담 예약 (cal.com 임베드) */
+  html{scroll-behavior:smooth}
+  .booking{background:var(--cream);text-align:center}
+  #booking{scroll-margin-top:72px}
+  .booking-sub{color:var(--text);font-size:16px;margin:14px auto 30px;line-height:1.7;max-width:560px}
+  .cal-wrap{max-width:980px;margin:0 auto;background:#fff;border:1px solid #ece2d6;border-radius:20px;padding:8px;box-shadow:0 12px 40px rgba(35,24,21,.08);overflow:hidden}
+  #my-cal-inline{width:100%;min-height:640px;overflow:hidden}
 </style>
 </head>
 <body>
   <nav class="nav">
     <div class="logo">SIMPLE KEY<span class="dot">.</span></div>
-    <a class="cta" href="https://www.simplekey.kr/contact" target="_blank" rel="noopener">무료 상담</a>
+    <a class="cta" href="#booking">무료 상담</a>
   </nav>
 
   <section class="hero">
@@ -340,7 +347,7 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
     <h1><span class="reveal">대표님이 없으면,</span><br><span class="reveal l2">회사가 멈추나요<span class="dot">?</span></span></h1>
     <p class="sub">직원 5명이 하던 일을, 이제 <b>1명 + AI</b>가 합니다.<br>
       반복 업무 <b>70% 자동화</b> · 업무 효율 <b>2배</b>.</p>
-    <a class="btn" href="https://www.simplekey.kr/contact" target="_blank" rel="noopener">10분 무료 상담 신청하기 →</a>
+    <a class="btn" href="#booking">10분 무료 상담 신청하기 →</a>
     <div class="note">심플키 대표가 1:1로 진단하는 자리 · 하루 2명 한정</div>
   </section>
 
@@ -624,9 +631,17 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
     </div>
     <div class="cta-badge">⏱ 심플키 대표 1:1 진단 · 하루 2명 선착순</div>
     <div class="btns">
-      <a class="b1" href="https://www.simplekey.kr/contact" target="_blank" rel="noopener">무료 상담 신청하기 →</a>
+      <a class="b1" href="#booking">무료 상담 신청하기 →</a>
     </div>
     <p class="final-warn">진심으로 시스템을 잡고 싶은 분만 신청해주세요.</p>
+  </section>
+
+  <!-- 상담 예약 (cal.com 임베드) -->
+  <section class="sec booking" id="booking">
+    <span class="eyebrow">상담 예약</span>
+    <h2 class="sec-title">편한 시간을 선택해주세요</h2>
+    <p class="booking-sub">10분이면 충분해요. 심플키 대표가 직접 통화로 진단해드려요.</p>
+    <div class="cal-wrap"><div id="my-cal-inline"></div></div>
   </section>
 
   <!-- FOOTER -->
@@ -647,7 +662,7 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
         <b>심플키 10분 무료 상담</b>
         <span>심플키 대표 1:1 진단 · 하루 2명 선착순</span>
       </div>
-      <a class="sc-btn" href="https://www.simplekey.kr/contact" target="_blank" rel="noopener">무료 상담 신청 →</a>
+      <a class="sc-btn" href="#booking">무료 상담 신청 →</a>
     </div>
   </div>
 
@@ -739,6 +754,20 @@ src="https://www.facebook.com/tr?id=647144813979261&ev=PageView&noscript=1"/></n
       }, { threshold: 0.6 });
       els.forEach(function(el){ io.observe(el); });
     })();
+  </script>
+
+  <!-- Cal.com 인라인 임베드 (simplekey/10min) -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "10min", {origin:"https://app.cal.com"});
+    Cal.ns["10min"]("inline", {
+      elementOrSelector:"#my-cal-inline",
+      config: {"layout":"month_view"},
+      calLink: "simplekey/10min",
+    });
+    Cal.ns["10min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    // 예약 완료 → 메타 픽셀 Schedule (실제 전환)
+    Cal.ns["10min"]("on", { action: "bookingSuccessful", callback: function(){ if(typeof fbq==='function') fbq('track','Schedule',{content_name:'10분무료상담'}); } });
   </script>
 </body>
 </html>
