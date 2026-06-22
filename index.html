@@ -101,7 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .result .attr{margin-top:16px;color:var(--muted);font-size:16px;font-weight:600}
 
   /* PROBLEM */
-  .problem{background:#fff}
+  .problem{background:#FCEFE2}
   .cards{max-width:1080px;margin:54px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .card{background:#fff;border:1px solid #ece2d6;border-radius:18px;padding:34px 28px;box-shadow:0 14px 34px rgba(35,24,21,.10)}
   .card .emoji{font-size:34px;line-height:1}
@@ -352,6 +352,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .booking-sub{color:var(--text);font-size:16px;margin:14px auto 30px;line-height:1.7;max-width:560px}
   .cal-wrap{max-width:980px;margin:0 auto;background:#fff;border:1px solid #ece2d6;border-radius:20px;padding:8px;box-shadow:0 12px 40px rgba(35,24,21,.08);overflow:hidden}
   #my-cal-inline{width:100%;min-height:640px;overflow:hidden}
+  /* CLIENTS MARQUEE */
+  .clients-marquee{padding:76px 0;background:#FFFFFF;text-align:center;overflow:hidden;border-top:1px solid #ECE6DD;border-bottom:1px solid #ECE6DD}
+  .clients-eyebrow{font-family:'Pretendard',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;color:#E87200;margin-bottom:8px}
+  .clients-title{font-family:'Pretendard',sans-serif;font-size:26px;font-weight:800;color:#231815;margin-bottom:44px}
+  .marquee-wrap{position:relative;width:100%;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%)}
+  .marquee-row{margin-bottom:30px}
+  .marquee-row:last-child{margin-bottom:0}
+  .marquee-track{display:flex;align-items:center;gap:60px;width:max-content}
+  .marquee-row:nth-child(1) .marquee-track{animation:marquee-scroll 40s linear infinite}
+  .marquee-row:nth-child(2) .marquee-track{animation:marquee-rev 46s linear infinite}
+  .marquee-row:nth-child(3) .marquee-track{animation:marquee-scroll 43s linear infinite}
+  .marquee-track:hover{animation-play-state:paused}
+  .marquee-logo{height:36px;width:auto;object-fit:contain;opacity:.8;transition:opacity .3s,transform .3s;flex-shrink:0}
+  .marquee-logo:hover{opacity:1;transform:scale(1.08)}
+  @keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes marquee-rev{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+  @media(max-width:768px){.clients-title{font-size:20px}.marquee-logo{height:28px}.marquee-track{gap:40px}.marquee-row{margin-bottom:22px}}
 </style>
 </head>
 <body>
@@ -378,6 +395,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="big">단 <span class="hl">3명</span>으로, 월 <span class="hl">6억</span>을<br>만들었습니다.</p>
     <p class="quote">“대표에게 시스템 사고가 없으면, <br class="mo-br">절대 성공할 수 없습니다.”</p>
     <p class="attr">A뷰티 커머스 김동민 대표님</p>
+  </section>
+
+  <!-- CLIENTS MARQUEE -->
+  <section class="clients-marquee">
+    <p class="clients-eyebrow">CLIENTS</p>
+    <h2 class="clients-title">심플키와 함께하는 고객사들</h2>
+    <div class="marquee-wrap">
+      <div class="marquee-row"><div class="marquee-track">
+        <img src="assets/logos-imweb-t/logo01.png" alt="logo1" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo02.png" alt="logo2" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo03.png" alt="logo3" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo04.png" alt="logo4" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo05.png" alt="logo5" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo06.png" alt="logo6" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo07.png" alt="logo7" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo08.png" alt="logo8" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo09.png" alt="logo9" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo01.png" alt="logo1" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo02.png" alt="logo2" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo03.png" alt="logo3" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo04.png" alt="logo4" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo05.png" alt="logo5" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo06.png" alt="logo6" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo07.png" alt="logo7" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo08.png" alt="logo8" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo09.png" alt="logo9" class="marquee-logo">
+      </div></div>
+      <div class="marquee-row"><div class="marquee-track">
+        <img src="assets/logos-imweb-t/logo10.png" alt="logo10" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo11.png" alt="logo11" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo12.png" alt="logo12" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo13.png" alt="logo13" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo14.png" alt="logo14" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo15.png" alt="logo15" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo16.png" alt="logo16" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo17.png" alt="logo17" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo10.png" alt="logo10" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo11.png" alt="logo11" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo12.png" alt="logo12" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo13.png" alt="logo13" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo14.png" alt="logo14" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo15.png" alt="logo15" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo16.png" alt="logo16" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo17.png" alt="logo17" class="marquee-logo">
+      </div></div>
+      <div class="marquee-row"><div class="marquee-track">
+        <img src="assets/logos-imweb-t/logo18.png" alt="logo18" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo19.png" alt="logo19" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo20.png" alt="logo20" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo21.png" alt="logo21" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo22.png" alt="logo22" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo23.png" alt="logo23" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo24.png" alt="logo24" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo25.png" alt="logo25" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo18.png" alt="logo18" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo19.png" alt="logo19" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo20.png" alt="logo20" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo21.png" alt="logo21" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo22.png" alt="logo22" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo23.png" alt="logo23" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo24.png" alt="logo24" class="marquee-logo">
+        <img src="assets/logos-imweb-t/logo25.png" alt="logo25" class="marquee-logo">
+      </div></div>
+    </div>
   </section>
 
   <!-- PROBLEM -->
