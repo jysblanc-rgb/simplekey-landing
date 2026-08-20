@@ -1,0 +1,15 @@
+<!-- meta: bg=warm pad=xl id=problem -->
+<!-- 2 PROBLEM · A 대사재연형 — 고객 실제 말을 인용해 자기투사 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  <div class="grid-2">
+    {{#quotes}}
+    <div class="card quote-card">
+      <div class="q-mark">“</div>
+      <div class="q-text">{{text}}</div>
+      {{#sub}}<div class="q-sub">{{sub}}</div>{{/sub}}
+    </div>
+    {{/quotes}}
+  </div>
+</div>

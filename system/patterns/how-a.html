@@ -1,0 +1,16 @@
+<!-- meta: bg=warm pad=xl id=process -->
+<!-- 6 HOW · A 숫자 스텝형 — 과정을 숫자 단계로. 재현성이 차별점일 때 기본값 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  {{#sub}}<p class="sec-sub">{{{sub}}}</p>{{/sub}}
+  <div class="grid-3">
+    {{#steps}}
+    <div class="card step-card">
+      <div class="s-num">STEP {{num}}</div>
+      <div class="s-title">{{title}}</div>
+      <div class="s-body">{{body}}</div>
+    </div>
+    {{/steps}}
+  </div>
+</div>

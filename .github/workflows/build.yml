@@ -1,0 +1,42 @@
+name: 상세페이지 자동 빌드
+
+# 대표님이 Pages CMS(또는 GitHub)에서 content/*.yml을 고쳐 저장하면
+# 이 워크플로가 페이지를 다시 조립하고, 픽셀·GTM 존재를 기계 검증한 뒤 발행한다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "system/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: 페이지 조립 (빌더 자체 검증 포함)
+        run: python3 system/build.py
+      - name: 픽셀·GTM 전수 가드 (라이브 루트 포함 · 하나라도 없으면 발행 중단)
+        run: |
+          set -e
+          for f in index.html $(find p -name index.html 2>/dev/null); do
+            grep -q "647144813979261" "$f" || { echo "❌ Meta Pixel 누락: $f"; exit 1; }
+            grep -q "GTM-WX8R8ZB" "$f" || { echo "❌ GTM 누락: $f"; exit 1; }
+            echo "✓ $f"
+          done
+      - name: 조립 결과 커밋·발행
+        run: |
+          git config user.name "simplekey-builder"
+          git config user.email "ceo@simplekey.kr"
+          git add p/
+          git diff --cached --quiet || git commit -m "build: 상세페이지 자동 조립 (content 변경 반영)"
+          git push

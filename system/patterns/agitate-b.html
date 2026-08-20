@@ -1,0 +1,12 @@
+<!-- meta: bg=white pad=xl id=agitate -->
+<!-- 3 AGITATE · B 대안나열+공통실패 수렴형 — 시도한 대안들이 전부 같은 이유로 실패했음을 단일 원인으로 수렴. ★심플키 확정 골격 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  <div class="tried-list">
+    {{#tried}}
+    <div class="tried-item"><span class="x">✕</span><span>{{.}}</span></div>
+    {{/tried}}
+  </div>
+  <p class="converge">{{{converge}}}</p>
+</div>

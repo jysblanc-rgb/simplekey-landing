@@ -1,0 +1,56 @@
+/* ============================================================
+   심플키 디자인 토큰 v1 (2026-08-21)
+   정본: 옵시디언 「심플키 웹 디자인 시스템」 + 「심플키 디자인 시스템 구축 (프로젝트 정본)」 §11 확정값
+   규칙: 화면 코드는 semantic 토큰만 사용. 원시값 직접 사용 금지.
+   ============================================================ */
+:root{
+  /* --- 1. Primitive (원시값) --- */
+  --brown-900:#231815;   /* 브랜드 브라운/차콜 */
+  --orange-600:#E87200;  /* 브랜드 오렌지 */
+  --orange-700:#CF6500;  /* 오렌지 hover */
+  --cream-100:#F5F0EA;   /* 크림 배경 1 */
+  --cream-200:#EEE5DA;   /* 크림 배경 2 */
+  --warm-050:#FAF8F5;
+  --warm-300:#D9CDC6;
+  --warm-500:#8F817A;
+  --ink-900:#1A1A1A;
+  --gray-700:#555555;
+  --gray-400:#999999;
+  --white:#FFFFFF;
+
+  /* --- 2. Semantic (역할) — 색 역할 규율: 크림=배경 기본+흰 카드 / 브라운=텍스트·헤더·푸터·임팩트 / 오렌지=화면 5~10%·CTA·핵심숫자만 --- */
+  --bg-page:var(--white);
+  --bg-section-warm:var(--cream-100);
+  --bg-section-warm2:var(--cream-200);
+  --bg-dark:var(--brown-900);
+  --bg-card:var(--white);
+  --text-strong:var(--ink-900);
+  --text-body:var(--gray-700);
+  --text-muted:var(--gray-400);
+  --text-on-dark:var(--white);
+  --text-on-dark-sub:var(--warm-300);
+  --text-on-dark-muted:var(--warm-500);
+  --accent:var(--orange-600);
+  --accent-hover:var(--orange-700);
+  --accent-tint:rgba(232,114,0,.10);
+  --border-soft:#ECE2D6;
+
+  /* --- 3. 타입 스케일 (8단계 고정 · 이 밖의 크기 금지) --- */
+  --fs-1:16px; --fs-2:18px; --fs-3:20px; --fs-4:24px;
+  --fs-5:28px; --fs-6:32px; --fs-7:42px; --fs-8:60px;
+  --fw-body:400; --fw-em:600; --fw-title:700;
+  --lh-title:1.4; --lh-body:1.6;
+
+  /* --- 4. 스페이싱 스케일 (8px 그리드 · 이 밖의 여백 금지) --- */
+  --sp-1:4px; --sp-2:8px; --sp-3:16px; --sp-4:24px;
+  --sp-5:32px; --sp-6:48px; --sp-7:80px; --sp-8:120px; --sp-9:160px;
+
+  /* --- 5. 레이아웃 --- */
+  --w-content:1180px;
+  --pad-side:24px;
+
+  /* --- 6. 도형·그림자 (각 1종 고정) --- */
+  --radius-card:16px;
+  --radius-pill:999px;
+  --shadow-card:0 12px 32px rgba(35,24,21,.08);
+}

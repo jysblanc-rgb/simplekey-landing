@@ -1,0 +1,14 @@
+<!-- meta: bg=warm pad=xl id=booking -->
+<!-- 11 CTA · A 자격심사 신청서형 — 구매버튼 아닌 신청서. 자격 필터 + cal.com 임베드. ★심플키 기본값 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  {{#fit}}<p class="sec-sub">{{{fit}}}</p>{{/fit}}
+  <div class="fit-list">
+    {{#checks}}
+    <div class="fit-item"><span class="chk">✓</span><span>{{.}}</span></div>
+    {{/checks}}
+  </div>
+  <div id="cal-embed"></div>
+  {{#note}}<p class="btn-note">{{note}}</p>{{/note}}
+</div>

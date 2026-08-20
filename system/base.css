@@ -1,0 +1,84 @@
+/* ============================================================
+   심플키 베이스 스타일 v1 — 토큰 위에서만 동작 (tokens.css 선행 로드 필수)
+   섹션 리듬: 세로 패딩은 --sp-7/8/9 중에서만 (pad-md/lg/xl)
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color:var(--text-strong);background:var(--bg-page);
+  font-size:var(--fs-1);font-weight:var(--fw-body);line-height:var(--lh-body);
+  -webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---- 레이아웃 ---- */
+.container{max-width:var(--w-content);margin:0 auto;padding:0 var(--pad-side)}
+.container-narrow{max-width:760px;margin:0 auto;padding:0 var(--pad-side)}
+
+/* ---- 섹션 리듬 (세로 패딩 3단만 허용) ---- */
+.sec{padding-top:var(--sp-9);padding-bottom:var(--sp-9)}
+.sec.pad-lg{padding-top:var(--sp-8);padding-bottom:var(--sp-8)}
+.sec.pad-md{padding-top:var(--sp-7);padding-bottom:var(--sp-7)}
+@media(max-width:767px){
+  .sec{padding-top:var(--sp-7);padding-bottom:var(--sp-7)}
+  .sec.pad-lg,.sec.pad-md{padding-top:var(--sp-6);padding-bottom:var(--sp-6)}
+}
+
+/* ---- 섹션 배경 ---- */
+.bg-white{background:var(--bg-page)}
+.bg-warm{background:var(--bg-section-warm)}
+.bg-warm2{background:var(--bg-section-warm2)}
+.bg-dark{background:var(--bg-dark);color:var(--text-on-dark)}
+.bg-dark .sec-title,.bg-dark .sec-lead{color:var(--text-on-dark)}
+.bg-dark .sec-sub{color:var(--text-on-dark-sub)}
+
+/* ---- 타이포 공통 ---- */
+.eyebrow{display:block;text-align:center;color:var(--accent);font-weight:var(--fw-title);
+  font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:var(--sp-3)}
+.sec-title{text-align:center;font-size:clamp(var(--fs-5),3.6vw,var(--fs-7));
+  font-weight:var(--fw-title);line-height:var(--lh-title);letter-spacing:-1px;color:var(--text-strong)}
+.sec-sub{max-width:680px;margin:var(--sp-4) auto 0;text-align:center;
+  font-size:clamp(var(--fs-1),2vw,var(--fs-3));color:var(--text-body);line-height:var(--lh-body)}
+.hl{color:var(--accent)}
+
+/* ---- 버튼 (2종 고정) ---- */
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;
+  text-decoration:none;font-weight:var(--fw-title);font-size:var(--fs-2);
+  padding:var(--sp-3) var(--sp-6);border-radius:var(--radius-pill);
+  box-shadow:0 14px 34px rgba(232,114,0,.30);transition:.2s}
+.btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text-strong);
+  text-decoration:none;font-weight:var(--fw-em);font-size:var(--fs-1);
+  padding:var(--sp-3) var(--sp-5);border-radius:var(--radius-pill);border:1px solid var(--border-soft);transition:.2s}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;justify-content:center;gap:var(--sp-3);flex-wrap:wrap;margin-top:var(--sp-6)}
+.btn-note{margin-top:var(--sp-3);text-align:center;color:var(--text-muted);font-size:14px}
+.bg-dark .btn-note{color:var(--text-on-dark-muted)}
+.bg-dark .btn-ghost{color:var(--text-on-dark);border-color:rgba(255,255,255,.25)}
+
+/* ---- 카드 (1종 고정) ---- */
+.card{background:var(--bg-card);border:1px solid var(--border-soft);
+  border-radius:var(--radius-card);padding:var(--sp-5) var(--sp-4);box-shadow:var(--shadow-card)}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-4);max-width:var(--w-content);margin:var(--sp-6) auto 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);max-width:var(--w-content);margin:var(--sp-6) auto 0}
+@media(max-width:1023px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* ---- NAV ---- */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:var(--sp-3) var(--sp-6);background:rgba(35,24,21,.92);backdrop-filter:blur(8px)}
+.nav .logo{color:#fff;font-weight:var(--fw-title);font-size:var(--fs-3);letter-spacing:.5px;text-decoration:none}
+.nav .logo .dot{color:var(--accent)}
+.nav .nav-cta{background:var(--accent);color:#fff;text-decoration:none;font-weight:var(--fw-title);
+  font-size:14px;padding:11px 20px;border-radius:var(--radius-pill);transition:.2s}
+.nav .nav-cta:hover{background:var(--accent-hover)}
+@media(max-width:767px){.nav{padding:var(--sp-3) var(--sp-4)}}
+
+/* ---- FOOTER ---- */
+.footer{background:var(--bg-dark);color:var(--text-on-dark-muted);text-align:center;
+  padding:var(--sp-6) var(--pad-side);font-size:14px;line-height:1.8}
+.footer .f-logo{color:#fff;font-weight:var(--fw-title);font-size:var(--fs-2)}
+.footer .f-logo .dot{color:var(--accent)}
+.footer a{color:var(--text-on-dark-sub);text-decoration:none}

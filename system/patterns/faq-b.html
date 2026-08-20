@@ -1,0 +1,14 @@
+<!-- meta: bg=white pad=xl id=faq -->
+<!-- 12 FAQ · B 반론재활용형 — 9번은 큰 반론, FAQ는 세부 실행 반론 분담 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  <div class="faq-list">
+    {{#items}}
+    <details>
+      <summary>{{q}}</summary>
+      <p class="f-a">{{a}}</p>
+    </details>
+    {{/items}}
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<!-- meta: bg=warm pad=xl id=offer -->
+<!-- 8 OFFER · C 가격비노출·가치프레이밍형 — 가격 대신 "진단 후 맞춤 제안" 자격심사 전환. ★심플키 고가 기본값 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  {{#sub}}<p class="sec-sub">{{{sub}}}</p>{{/sub}}
+  <div class="grid-3 point-cards">
+    {{#items}}
+    <div class="card">
+      <div class="p-num">{{num}}</div>
+      <div class="p-title">{{title}}</div>
+      <div class="p-body">{{body}}</div>
+    </div>
+    {{/items}}
+  </div>
+  {{#note}}<div class="offer-note">{{{note}}}</div>{{/note}}
+</div>

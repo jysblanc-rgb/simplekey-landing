@@ -1,0 +1,12 @@
+<!-- meta: bg=dark pad=xl id=hero -->
+<!-- 1 HERO · B 선언형 포지셔닝 — 카테고리를 새로 정의해 원조로 못박음. 유사 경쟁사 있어 차별점 즉시 필요할 때 -->
+<div class="container hero-wrap hero-glow">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h1 class="hero-h1">{{{headline}}}</h1>
+  {{#sub}}<p class="hero-sub">{{{sub}}}</p>{{/sub}}
+  <div class="btn-row">
+    <a class="btn" href="{{cta_href}}">{{cta}} →</a>
+    {{#cta2}}<a class="btn-ghost" href="{{cta2_href}}">{{cta2}}</a>{{/cta2}}
+  </div>
+  {{#note}}<p class="btn-note">{{note}}</p>{{/note}}
+</div>

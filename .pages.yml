@@ -1,0 +1,82 @@
+# ============================================================
+# Pages CMS 설정 (app.pagescms.org · GitHub 로그인 → 폼으로 카피 편집)
+# 대표님 편집 화면을 정의한다. 라벨은 전부 한국어.
+# ============================================================
+media:
+  input: assets
+  output: /assets
+
+content:
+  - name: pages
+    label: 상세페이지 (카피·섹션)
+    type: collection
+    path: content
+    format: yaml
+    extension: yml
+    view:
+      fields: [page.title]
+    fields:
+      - name: page
+        label: 페이지 기본 정보
+        type: object
+        fields:
+          - name: slug
+            label: 주소 (영문, 바꾸면 URL이 바뀌어요)
+            type: string
+          - name: title
+            label: 브라우저 탭 제목
+            type: string
+          - name: description
+            label: 검색·공유 설명문
+            type: text
+          - name: noindex
+            label: 검색 비노출 (검토 중에는 켜두세요)
+            type: boolean
+      - name: sections
+        label: 섹션 (순서 = 페이지 순서)
+        type: object
+        list: true
+        view:
+          fields: [pattern]
+        fields:
+          - name: pattern
+            label: 섹션 패턴 (디자인 골격)
+            type: select
+            options:
+              values:
+                - { value: hero-a, label: "1 히어로 A · 손실 질문형" }
+                - { value: hero-b, label: "1 히어로 B · 선언형" }
+                - { value: problem-a, label: "2 문제공감 A · 고객 대사 재연" }
+                - { value: agitate-b, label: "3 격화 B · 대안나열→수렴" }
+                - { value: solution-a, label: "4 솔루션 A · 비유 원리" }
+                - { value: trust-a, label: "5 신뢰 A · 대표 서사" }
+                - { value: how-a, label: "6 프로세스 A · 숫자 스텝" }
+                - { value: proof-a, label: "7 사회적증거 A · 성과 카드" }
+                - { value: offer-c, label: "8 오퍼 C · 가치 프레이밍" }
+                - { value: objection-a, label: "9 반론 A · 정면 비교표" }
+                - { value: urgency-a, label: "10 긴급성 A · 정원 제한" }
+                - { value: cta-a, label: "11 신청 A · 자격심사+예약" }
+                - { value: faq-b, label: "12 FAQ B · 실무 문답" }
+                - { value: final-a, label: "13 클로징 A · 성과 재노출" }
+          - name: bg
+            label: 배경색 (비우면 패턴 기본값)
+            type: select
+            options:
+              values:
+                - { value: white, label: 흰색 }
+                - { value: warm, label: 크림 }
+                - { value: warm2, label: 진한 크림 }
+                - { value: dark, label: 브라운(어두움) }
+          - name: pad
+            label: 위아래 여백 (비우면 기본 · 넉넉)
+            type: select
+            options:
+              values:
+                - { value: xl, label: 넉넉 (기본) }
+                - { value: lg, label: 중간 }
+                - { value: md, label: 좁게 }
+          - name: fields
+            label: 카피 (이 섹션의 문구들)
+            type: code
+            options:
+              language: yaml

@@ -1,0 +1,108 @@
+/* ============================================================
+   섹션 패턴 전용 스타일 v1 — 토큰만 참조 (하드코딩 색·크기 금지)
+   ============================================================ */
+
+/* -- hero (a: 손실질문형 / b: 선언형) -- */
+.hero-wrap{text-align:center;position:relative;overflow:hidden}
+.hero-glow::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,114,0,.18),transparent 70%);
+  top:-160px;right:-120px;pointer-events:none}
+.hero-h1{font-size:clamp(var(--fs-6),5.4vw,var(--fs-8));font-weight:var(--fw-title);
+  line-height:1.22;letter-spacing:-1.5px}
+.hero-sub{max-width:680px;margin:var(--sp-5) auto 0;color:var(--text-on-dark-sub);
+  font-size:clamp(var(--fs-1),2.1vw,var(--fs-3));line-height:var(--lh-body)}
+.hero-sub b{color:var(--text-on-dark);font-weight:var(--fw-title)}
+
+/* -- problem-a: 대사재연 말풍선 카드 -- */
+.quote-card{position:relative}
+.quote-card .q-mark{color:var(--accent);font-size:var(--fs-6);font-weight:var(--fw-title);line-height:1}
+.quote-card .q-text{margin-top:var(--sp-3);font-size:var(--fs-3);font-weight:var(--fw-title);
+  color:var(--text-strong);line-height:1.45}
+.quote-card .q-sub{margin-top:var(--sp-2);color:var(--text-body);font-size:var(--fs-1)}
+
+/* -- agitate-b: 대안나열 → 수렴 -- */
+.tried-list{max-width:760px;margin:var(--sp-6) auto 0;display:grid;gap:var(--sp-3)}
+.tried-item{display:flex;align-items:center;gap:var(--sp-3);background:var(--bg-card);
+  border:1px solid var(--border-soft);border-radius:var(--radius-card);
+  padding:var(--sp-3) var(--sp-4);color:var(--text-body);font-size:var(--fs-2)}
+.tried-item .x{color:var(--text-muted);font-weight:var(--fw-title);flex:none}
+.converge{max-width:760px;margin:var(--sp-6) auto 0;text-align:center;
+  font-size:clamp(var(--fs-3),2.6vw,var(--fs-4));font-weight:var(--fw-em);
+  color:var(--text-strong);line-height:var(--lh-title)}
+.converge .hl{color:var(--accent)}
+
+/* -- solution-a: 비유·메타포 -- */
+.metaphor{max-width:760px;margin:var(--sp-5) auto 0;text-align:center;
+  color:var(--text-body);font-size:clamp(var(--fs-1),2vw,var(--fs-3));line-height:var(--lh-body)}
+.point-cards .p-num{color:var(--accent);font-weight:var(--fw-title);font-size:var(--fs-1);letter-spacing:1px}
+.point-cards .p-title{margin-top:var(--sp-2);font-size:var(--fs-3);font-weight:var(--fw-title);color:var(--text-strong)}
+.point-cards .p-body{margin-top:var(--sp-2);color:var(--text-body);font-size:var(--fs-1)}
+
+/* -- trust-a: 취약성 서사 -- */
+.founder-grid{max-width:960px;margin:var(--sp-6) auto 0;display:grid;
+  grid-template-columns:280px 1fr;gap:var(--sp-6);align-items:center}
+.founder-photo{width:100%;border-radius:var(--radius-card);box-shadow:var(--shadow-card)}
+.founder-story{font-size:clamp(var(--fs-1),2vw,var(--fs-2));color:var(--text-body);line-height:var(--lh-body)}
+.founder-story b{color:var(--text-strong);font-weight:var(--fw-title)}
+.founder-name{margin-top:var(--sp-4);font-weight:var(--fw-title);color:var(--text-strong)}
+@media(max-width:767px){.founder-grid{grid-template-columns:1fr}.founder-photo{max-width:240px;margin:0 auto}}
+
+/* -- how-a: 숫자 스텝 -- */
+.step-card .s-num{color:var(--accent);font-weight:var(--fw-title);font-size:var(--fs-1);letter-spacing:1px}
+.step-card .s-title{margin-top:var(--sp-2);font-size:var(--fs-3);font-weight:var(--fw-title);color:var(--text-strong)}
+.step-card .s-body{margin-top:var(--sp-2);color:var(--text-body);font-size:var(--fs-1)}
+
+/* -- proof-a: 정량 성과 카드 -- */
+.metric-card{text-align:center}
+.metric-card .m-num{font-size:clamp(var(--fs-6),4vw,var(--fs-7));font-weight:var(--fw-title);
+  color:var(--accent);letter-spacing:-1px;line-height:1.2}
+.metric-card .m-label{margin-top:var(--sp-2);font-size:var(--fs-2);font-weight:var(--fw-em);color:var(--text-strong)}
+.metric-card .m-attr{margin-top:var(--sp-2);color:var(--text-muted);font-size:14px}
+
+/* -- offer-c: 가치 프레이밍 -- */
+.offer-note{max-width:680px;margin:var(--sp-6) auto 0;text-align:center;
+  background:var(--accent-tint);border-radius:var(--radius-card);
+  padding:var(--sp-4);color:var(--text-strong);font-weight:var(--fw-em);font-size:var(--fs-2)}
+
+/* -- objection-a: 정면 비교표 -- */
+.compare{max-width:960px;margin:var(--sp-6) auto 0;overflow-x:auto}
+.compare table{width:100%;border-collapse:collapse;background:var(--bg-card);
+  border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-card)}
+.compare th{background:var(--bg-dark);color:var(--text-on-dark);font-weight:var(--fw-title);
+  font-size:var(--fs-1);padding:var(--sp-3) var(--sp-4);text-align:left}
+.compare th:last-child{color:var(--accent)}
+.compare td{padding:var(--sp-3) var(--sp-4);border-top:1px solid var(--border-soft);
+  color:var(--text-body);font-size:var(--fs-1);vertical-align:top}
+.compare td:last-child{color:var(--text-strong);font-weight:var(--fw-em)}
+.rebut{max-width:760px;margin:var(--sp-6) auto 0}
+.rebut .r-q{font-weight:var(--fw-title);color:var(--text-strong);font-size:var(--fs-2)}
+.rebut .r-a{margin-top:var(--sp-2);color:var(--text-body)}
+
+/* -- urgency-a: 정원 제한 -- */
+.urgency-num{text-align:center;margin-top:var(--sp-4);
+  font-size:clamp(var(--fs-6),4vw,var(--fs-7));font-weight:var(--fw-title);color:var(--accent)}
+
+/* -- cta-a: 자격심사 신청 + cal 임베드 -- */
+.fit-list{max-width:680px;margin:var(--sp-6) auto 0;display:grid;gap:var(--sp-3)}
+.fit-item{display:flex;align-items:flex-start;gap:var(--sp-3);background:var(--bg-card);
+  border:1px solid var(--border-soft);border-radius:var(--radius-card);
+  padding:var(--sp-3) var(--sp-4);font-size:var(--fs-1);color:var(--text-body)}
+.fit-item .chk{color:var(--accent);font-weight:var(--fw-title);flex:none}
+#cal-embed{max-width:960px;margin:var(--sp-6) auto 0;min-height:560px;
+  background:var(--bg-card);border-radius:var(--radius-card);box-shadow:var(--shadow-card);overflow:hidden}
+
+/* -- faq-b -- */
+.faq-list{max-width:760px;margin:var(--sp-6) auto 0;display:grid;gap:var(--sp-3)}
+.faq-list details{background:var(--bg-card);border:1px solid var(--border-soft);
+  border-radius:var(--radius-card);padding:var(--sp-3) var(--sp-4)}
+.faq-list summary{cursor:pointer;font-weight:var(--fw-title);color:var(--text-strong);
+  font-size:var(--fs-2);list-style:none;display:flex;justify-content:space-between;gap:var(--sp-3)}
+.faq-list summary::after{content:"+";color:var(--accent);font-weight:var(--fw-title)}
+.faq-list details[open] summary::after{content:"–"}
+.faq-list .f-a{margin-top:var(--sp-3);color:var(--text-body);font-size:var(--fs-1)}
+
+/* -- final-a: 성과 재노출 클로징 -- */
+.final-stats{display:flex;justify-content:center;gap:var(--sp-6);flex-wrap:wrap;margin-top:var(--sp-6)}
+.final-stats .fs-item{text-align:center}
+.final-stats .fs-num{font-size:clamp(var(--fs-5),3.4vw,var(--fs-7));font-weight:var(--fw-title);color:var(--accent)}
+.final-stats .fs-label{margin-top:var(--sp-1);color:var(--text-on-dark-sub);font-size:var(--fs-1)}

@@ -1,0 +1,16 @@
+<!-- meta: bg=warm2 pad=xl id=solution -->
+<!-- 4 SOLUTION · A 비유·메타포형 — 원리를 익숙한 비유로. 무형 고가 컨설팅 기본값 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  {{#body}}<p class="metaphor">{{{body}}}</p>{{/body}}
+  <div class="grid-3 point-cards">
+    {{#points}}
+    <div class="card">
+      <div class="p-num">{{num}}</div>
+      <div class="p-title">{{title}}</div>
+      <div class="p-body">{{body}}</div>
+    </div>
+    {{/points}}
+  </div>
+</div>

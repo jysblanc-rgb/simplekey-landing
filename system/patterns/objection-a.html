@@ -1,0 +1,22 @@
+<!-- meta: bg=white pad=xl id=objection -->
+<!-- 9 OBJECTION · A 정면 비교표형 — 경쟁 대안 항목별 대비 + 반론 격파 -->
+<div class="container">
+  {{#eyebrow}}<span class="eyebrow">{{eyebrow}}</span>{{/eyebrow}}
+  <h2 class="sec-title">{{{headline}}}</h2>
+  <div class="compare">
+    <table>
+      <thead><tr><th>{{col_label}}</th><th>{{col_them}}</th><th>{{col_us}}</th></tr></thead>
+      <tbody>
+        {{#rows}}
+        <tr><td>{{label}}</td><td>{{them}}</td><td>{{us}}</td></tr>
+        {{/rows}}
+      </tbody>
+    </table>
+  </div>
+  {{#rebuttals}}
+  <div class="rebut">
+    <p class="r-q">“{{q}}”</p>
+    <p class="r-a">{{a}}</p>
+  </div>
+  {{/rebuttals}}
+</div>
