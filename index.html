@@ -62,7 +62,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {"@type":"Question","name":"1인 기업도 업무 시스템 컨설팅이 가능한가요?","acceptedAnswer":{"@type":"Answer","text":"네, 오히려 1인일 때가 좋습니다. AI를 첫 직원으로 두고 반복 업무부터 넘기면 됩니다. 직원 뽑기 전에 시스템을 잡아야 잘못된 채용으로 수천만 원 날리는 것을 막을 수 있습니다. 1인 기업이라면 AI 비서 구축부터 시작하세요."}},
 {"@type":"Question","name":"다른 노션 템플릿·AI 세팅 회사와 어떤 점이 다른가요?","acceptedAnswer":{"@type":"Answer","text":"툴만 세팅해주는 곳이 아닙니다. 커리큘럼 전체가 대표의 목표 달성에 맞춰져 있습니다. 경영 시스템을 먼저 잡고, 직원이 일 잘하는 법과 시스템 사고까지 익히도록 설계했습니다."}},
 {"@type":"Question","name":"노션이나 AI 같은 툴을 잘 모르는 직원들도 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"네. 기능만이 아니라 원하는 것을 직접 만드는 법까지 교육합니다. 실제로 신입 교육 기간이 3개월에서 2주로 줄어든 곳도 있습니다."}},
-{"@type":"Question","name":"업무 시스템 컨설팅은 시간과 비용이 얼마나 드나요?","acceptedAnswer":{"@type":"Answer","text":"시작 금액은 위 「프로그램」에 공개해 두었어요. 함께할 직원이 3명보다 많거나, 브랜드 · 매장이 여럿이거나, 점검을 더 받고 싶으면 금액이 올라가요. 10분 무료 상담 뒤 심플키 대표가 1:1로 진단하면서 인원과 범위를 확인하고 견적을 드려요."}},
+{"@type":"Question","name":"업무 시스템 컨설팅은 시간과 비용이 얼마나 드나요?","acceptedAnswer":{"@type":"Answer","text":"시작 금액은 위 「프로그램」에 공개해 두었어요. 함께할 직원이 3명보다 많거나, 브랜드 · 매장이 여럿이거나, 점검을 더 받고 싶으면 금액이 올라가요. 10분 통화에서 맞는 프로그램과 시작 비용을 먼저 알려드리고, 대표 1:1 진단에서 인원과 범위를 확인해 정확한 견적을 드려요."}},
 {"@type":"Question","name":"컨설팅이 끝나면 또 흐지부지되지 않나요?","acceptedAnswer":{"@type":"Answer","text":"심플키는 일회성 컨설팅으로 끝내지 않습니다. 집중 부트캠프와 월 정기 자문으로 시스템 사고가 회사에 내재화될 때까지 함께합니다."}}
 ]}
 </script>
@@ -393,6 +393,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero h1 .reveal{display:inline-block;opacity:0;transform:translateY(14px);animation:revealUp .6s ease forwards}
   .hero h1 .reveal.l2{animation-delay:.18s}
   @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+  /* 무료 상담 + 예약 통합 섹션 */
+  .step-grid{max-width:900px;margin:40px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;text-align:left}
+  .step{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+  .step-main{background:rgba(232,114,0,.12);border:1.5px solid rgba(232,114,0,.7)}
+  .step-tag{align-self:flex-start;background:rgba(232,114,0,.18);color:#FF9A3C;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.5px}
+  .step-who{display:flex;align-items:center;gap:12px}
+  .step-ic,.step-ph{width:52px;height:52px;border-radius:50%;flex-shrink:0}
+  .step-ic{background:rgba(232,114,0,.18);display:flex;align-items:center;justify-content:center}
+  .step-ph{object-fit:cover;object-position:top;background:#5a4a44}
+  .step-t{font-size:clamp(18px,2.2vw,21px);font-weight:800;color:#fff}
+  .step-s{font-size:14px;color:#FFB46B;font-weight:600}
+  .step-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .step-list li{font-size:16px;font-weight:700;color:#fff;line-height:1.5}
+  .step-list b{color:var(--orange);font-size:14px;margin-right:10px}
+  .step-card{flex:1;margin-top:6px;background:#fff;border-radius:12px;padding:16px 18px;color:var(--ink);display:flex;flex-direction:column}
+  .sc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:14px;font-weight:800}
+  .sc-head em{font-style:normal;font-size:11px;font-weight:700;color:#8a7a70;background:var(--cream);padding:3px 8px;border-radius:999px}
+  .sc-row{padding:7px 0;border-bottom:1px solid #eee4da;font-size:13px;color:#3a2f2c}
+  .sc-row small{display:block;font-size:11.5px;color:#8a7a70;margin-bottom:2px}
+  .sc-row i{display:inline-flex;width:13px;height:13px;border-radius:3px;background:var(--orange);color:#fff;font-size:10px;font-style:normal;align-items:center;justify-content:center;margin-right:6px;vertical-align:-1px}
+  .sc-grade{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:13px;color:#555}
+  .sc-grade span{width:38px;text-align:center;font-weight:800;color:#fff;border-radius:6px;padding:2px 0}
+  .g-c{background:#E8A25C}.g-f{background:#B54A1E}
+  .sc-foot{margin-top:auto;padding-top:10px;font-size:12.5px;font-weight:700;color:#B85A00}
+  .fit{display:inline-flex;align-items:center;gap:8px;margin-top:30px;background:rgba(255,255,255,.06);color:#e8ddd6;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:10px 20px;font-size:15px;font-weight:600}
+  .fit span{color:var(--orange);font-weight:800}
+  .fit-sub{margin-top:12px;color:#b8aaa2;font-size:14px}
+  .cal-box{max-width:980px;margin:36px auto 0;background:#fff;border-radius:20px;padding:22px 22px 18px;color:var(--ink);text-align:left;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  .cal-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:4px 6px 12px}
+  .cal-t{font-size:19px;font-weight:800}
+  .cal-box .cta-badge{margin:0;color:#C25F00;background:rgba(232,114,0,.12)}
+  .cal-box .cal-wrap{border:none;box-shadow:none;padding:0}
+  .cal-foot{padding:12px 6px 0;color:#777;font-size:13px}
+  .faq{text-align:center}
+  .faq-list{text-align:left}
+  .faq-cta{display:inline-block;margin-top:36px;color:var(--orange);border:1.5px solid var(--orange);background:#fff;font-weight:800;font-size:15px;padding:14px 28px;border-radius:999px;text-decoration:none;transition:.2s}
+  .faq-cta:hover{background:rgba(232,114,0,.1)}
+  @media(max-width:768px){.step-grid{grid-template-columns:1fr}.fit{border-radius:16px;text-align:left}.cal-box{padding:14px 10px}}
   /* 상담 예약 (cal.com 임베드) */
   html{scroll-behavior:smooth}
   .booking{background:var(--cream);text-align:center}
@@ -816,11 +854,58 @@ document.querySelectorAll('dialog.krv').forEach(function(d){d.addEventListener('
         <div class="pg-basis">부가세 포함 · 직원 3명 · 1개월 정착 기준</div>
       </div>
     </div>
-    <p class="pg-note">인원 수 · 진단 내용에 따라 맞춤형으로 견적이 달라질 수 있어요.<br class="mo-br"> 상담에서 먼저 알려드리고, 카드 할부도 가능해요.</p>
-    <div class="pg-help">
-      <div class="t">어떤 프로그램이 맞을지,<br class="mo-br"> 얼마가 들지 아직 모르겠다면</div>
-      <p class="d">10분 통화 뒤 대표 1:1 진단에서 맞는 프로그램과 비용을 알려드려요.</p>
-      <a class="pg-cta" href="#booking">10분 무료 상담 신청하기 →</a>
+    <p class="pg-note">인원·범위에 따라 견적이 달라져요. 카드 할부도 가능해요.</p>
+  </section>
+
+
+  <!-- 무료 상담 + 예약 (FINAL) -->
+  <section class="sec final" id="apply">
+    <span class="eyebrow-d">무료 상담</span>
+    <h2>대표님 없이도 돌아가는 회사,<br>어디서부터 시작할지 <span class="hl-box">찾아드려요</span></h2>
+    <p class="final-sub">10분 통화로 시작해요. 대표 진단까지 <b>비용은 없어요.</b></p>
+    <div class="step-grid">
+      <div class="step">
+        <span class="step-tag">STEP 1</span>
+        <div class="step-who"><span class="step-ic"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><div class="step-t">전문 컨설턴트와 10분 통화</div><div class="step-s">신청서를 미리 읽고 전화드려요</div></div></div>
+        <ol class="step-list">
+          <li><b>01</b>지금 어디에 시간을 뺏기는지 먼저 들어요</li>
+          <li><b>02</b>심플키와 맞는 회사인지 솔직하게 말씀드려요</li>
+          <li><b>03</b>시작 비용을 안내하고, 진단 일정을 바로 잡아요</li>
+        </ol>
+        <div class="step-card">
+          <div class="sc-head"><span>상담 신청서</span><em>예시</em></div>
+          <div class="sc-row"><small>직원 수</small>2~5인</div>
+          <div class="sc-row"><small>해당되는 상황을 모두 체크해주세요</small><i>✓</i>매출은 나는데, 일이 다 나한테 몰린다<br><i>✓</i>맡겨도 결국 내가 다시 설명하고 챙긴다</div>
+          <div class="sc-row"><small>고민 중인 서비스</small>업무 시스템 구축 (440만원~)</div>
+          <div class="sc-row"><small>가장 먼저 위임하고 싶은 일</small>매일 하는 주문·정산 정리</div>
+          <div class="sc-foot">적어주신 내용으로 통화를 준비해요</div>
+        </div>
+      </div>
+      <div class="step step-main">
+        <span class="step-tag">STEP 2 · 하루 2자리</span>
+        <div class="step-who"><img class="step-ph" src="assets/founder-cutout.png" alt="심플키 대표 서지영"><div><div class="step-t">서지영 대표의 1:1 문제진단</div><div class="step-s">150개 회사를 설계한 대표가 직접 봐드려요</div></div></div>
+        <ol class="step-list">
+          <li><b>01</b>사업 성장을 막는 문제 3가지를 짚어요</li>
+          <li><b>02</b>그동안 시스템이 안 잡힌 이유를 알려드려요</li>
+          <li><b>03</b>바뀐 뒤 모습과 시작 순서를 제안드려요</li>
+        </ol>
+        <div class="step-card">
+          <div class="sc-head"><span>기업 시스템 진단서</span><em>예시</em></div>
+          <div class="sc-grade">1. 목표 시스템<span class="g-c">C</span></div>
+          <div class="sc-grade">2. 조직 시스템<span class="g-f">F</span></div>
+          <div class="sc-grade">3. 표준 시스템<span class="g-f">F</span></div>
+          <div class="sc-grade">4. 업무 시스템<span class="g-c">C</span></div>
+          <div class="sc-grade">5. AI 시스템<span class="g-f">F</span></div>
+          <div class="sc-foot">우리 회사는 몇 등급일까요?</div>
+        </div>
+      </div>
+    </div>
+    <div class="fit"><span>✓</span>이미 매출은 나는데, 내가 없으면 회사가 멈추는 1~10인 기업 대표님께 맞아요</div>
+    <p class="fit-sub">실무자분이 먼저 신청하셔도 괜찮아요. 진단은 결정하실 대표님과 함께해요.</p>
+    <div class="cal-box" id="booking">
+      <div class="cal-head"><span class="cal-t">편한 시간을 골라주세요</span><span class="cta-badge">⏱ 대표 1:1 진단 · 하루 2자리</span></div>
+      <div class="cal-wrap"><div id="my-cal-inline"></div></div>
+      <p class="cal-foot">예약하신 시간에 전화드려요. 꼭 받으실 수 있는 시간으로 골라주세요.</p>
     </div>
   </section>
 
@@ -847,40 +932,16 @@ document.querySelectorAll('dialog.krv').forEach(function(d){d.addEventListener('
       </div>
       <div class="faq-item">
         <button class="faq-q"><span class="qmark">Q.</span>시간·비용이 얼마나 드나요?<span class="faq-ic">+</span></button>
-        <div class="faq-a">시작 금액은 위 「프로그램」에 공개해 두었어요. 함께할 직원이 3명보다 많거나, 브랜드 · 매장이 여럿이거나, 점검을 더 받고 싶으면 금액이 올라가요. 10분 무료 상담 뒤 심플키 대표가 1:1로 진단하면서 인원과 범위를 확인하고 견적을 드려요.</div>
+        <div class="faq-a">시작 금액은 위 「프로그램」에 공개해 두었어요. 함께할 직원이 3명보다 많거나, 브랜드 · 매장이 여럿이거나, 점검을 더 받고 싶으면 금액이 올라가요. 10분 통화에서 맞는 프로그램과 시작 비용을 먼저 알려드리고, 대표 1:1 진단에서 인원과 범위를 확인해 정확한 견적을 드려요.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span class="qmark">Q.</span>컨설팅이 끝나면 또 흐지부지되지 않나요?<span class="faq-ic">+</span></button>
         <div class="faq-a">그래서 심플키는 일회성 컨설팅으로 끝내지 않아요. 검증된 집중 부트캠프 + 월 정기 자문으로, 시스템 사고가 회사에 내재화될 때까지 챙겨드립니다.</div>
       </div>
     </div>
+    <a class="faq-cta" href="#booking">더 궁금한 건 10분 통화에서 편하게 물어보세요 →</a>
   </section>
 
-  <!-- 무료 진단 (FINAL) -->
-  <section class="sec final" id="apply">
-    <span class="eyebrow-d">무료 상담</span>
-    <h2>심플키 대표 1:1 진단, <span class="hl-box">10분 무료 상담</span>으로 시작하세요</h2>
-    <p class="final-sub">전문 컨설턴트와 10분 통화로 맞는지 확인하고, 대표 진단에서 받아 가실 건 이만큼. <b>비용 0원.</b></p>
-    <div class="diag-grid">
-      <div class="diag"><span class="ic">🔍</span><span class="tx">우리 회사 운영 병목 진단</span></div>
-      <div class="diag"><span class="ic">🧩</span><span class="tx">직원·AI 위임 우선순위</span></div>
-      <div class="diag"><span class="ic">🗺️</span><span class="tx">어디부터 손댈지 시스템 로드맵</span></div>
-      <div class="diag"><span class="ic">💡</span><span class="tx">우리 회사 맞춤 성장 전략</span></div>
-    </div>
-    <div class="cta-badge">⏱ 심플키 대표 1:1 진단 · 하루 2명 선착순</div>
-    <div class="btns">
-      <a class="b1" href="#booking">무료 상담 신청하기 →</a>
-    </div>
-    <p class="final-warn">진심으로 시스템을 잡고 싶은 분만 신청해주세요.</p>
-  </section>
-
-  <!-- 상담 예약 (cal.com 임베드) -->
-  <section class="sec booking" id="booking">
-    <span class="eyebrow">상담 예약</span>
-    <h2 class="sec-title">편한 시간을 선택해주세요</h2>
-    <p class="booking-sub">10분이면 충분해요. 전문 컨설턴트가 맞는지 확인하고, 대표 1:1 진단 일정을 잡아드려요.</p>
-    <div class="cal-wrap"><div id="my-cal-inline"></div></div>
-  </section>
 
   <!-- FOOTER -->
   <footer class="foot">
@@ -961,7 +1022,7 @@ document.querySelectorAll('dialog.krv').forEach(function(d){d.addEventListener('
 
     // 상담 버튼 클릭 → 맞춤 이벤트 ConsultClick (cal 네이티브 'Lead'와 충돌 방지·버튼 위치 라벨)
     (function(){
-      var ctas=[['.cta','nav'],['.btn','hero'],['.b1','final'],['.sc-btn','sticky'],['.pg-cta','program']];
+      var ctas=[['.cta','nav'],['.btn','hero'],['.b1','final'],['.sc-btn','sticky'],['.faq-cta','faq']];
       ctas.forEach(function(pair){
         document.querySelectorAll(pair[0]).forEach(function(a){
           a.addEventListener('click', function(){
